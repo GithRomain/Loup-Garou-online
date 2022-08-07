@@ -20,9 +20,9 @@ const corsOptions = {
 app.use(cors(corsOptions))
 
 // Import API route
-const routes = require('./app/routes/routes.js'); //importing route
+const UserRoutes = require('./app/routes/user.routes.js'); //importing route
 // routes
-routes(app);
+UserRoutes(app);
 
 // Handle production
 if (process.env.NODE_ENV === 'production') {
