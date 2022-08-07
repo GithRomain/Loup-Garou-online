@@ -1,6 +1,5 @@
 <template>
   <router-view>
-    test2
   </router-view>
 </template>
 
