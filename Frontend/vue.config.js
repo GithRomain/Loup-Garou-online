@@ -1,6 +1,7 @@
 const path = require('path');
 
 module.exports = {
+  transpileDependencies: ['vuex-persist'],
   outputDir: path.resolve(__dirname, '../Backend/build'),
   devServer: {
     proxy: {

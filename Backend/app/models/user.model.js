@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const uniqueValidator = require('mongoose-unique-validator');
 
 //clef secrete
 const key = process.env.TOKEN;
@@ -11,11 +12,12 @@ const jwt = require('jsonwebtoken');
 const UserSchema = mongoose.Schema({
     pseudo: {
         type: String,
+        unique: true,
         trim: true,
         required: true,
     },
 
-    mail: {
+    email: {
         type: String,
         unique: true,
         lowercase: true,
@@ -29,34 +31,6 @@ const UserSchema = mongoose.Schema({
     },
 })
 
-//Create a Schema method to compare password
-UserSchema.methods.comparePassword = function(password){
-    return bcrypt.compareSync(password, this.password);
-}
-
-//Fonction qui génere un token qu'on vérifiera par la suite
-UserSchema.methods.generateAuthToken = function(){
-    const user = this;
-    const token = jwt.sign(
-        {
-            _id: user._id,
-            pseudo: user.pseudo,
-            mail: user.mail,
-            password: user.password,
-        }, key
-    );
-    return token;
-}
-
-//Fonction qui vérifie le token
-UserSchema.methods.authorization = function () {
-    const token = this.generateAuthToken();
-    try {
-        jwt.verify(token, key);
-        return true
-    } catch (err) {
-        return false;
-    }
-}
+UserSchema.plugin(uniqueValidator);
 
 module.exports = mongoose.model("User", UserSchema);
