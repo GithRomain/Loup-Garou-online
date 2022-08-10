@@ -1,4 +1,5 @@
 <template>
+  <div class="container">
   <div class="form-structor">
     <div class="signup" id="sign">
       <h2 class="form-title" id="signup"><span>or</span>Sign up</h2>
@@ -19,6 +20,7 @@
         <button class="submit-btn">Log in</button>
       </div>
     </div>
+  </div>
   </div>
 </template>
 
@@ -73,24 +75,17 @@ export default {
 
 <style scoped>
 
-
-html, body {
-  position: relative;
-  min-height: 100vh;
-  background-color: darkred;
+.container{
   display: flex;
-  align-items: center;
   justify-content: center;
-  font-family: "Fira Sans", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  align-items: center;
 }
 
 .form-structor {
   background-color: #222;
   border-radius: 15px;
   height: 550px;
-  width: 350px;
+  width: 100%;
   position: relative;
   overflow: hidden;
 }

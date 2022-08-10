@@ -36,16 +36,9 @@ export default {
 @import url("https://fonts.googleapis.com/css?family=Fira+Sans");
 
 html, body{
-
-  position: relative;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   font-family: "Fira Sans", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
 }
 
 .white {
