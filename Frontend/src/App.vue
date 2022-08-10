@@ -1,10 +1,7 @@
 <template>
-  <button v-on:click="test">PUSH</button>
-  <tbody v-bind:class="[{white :lightMode === 'white'}]">
   <!-- <div></div> -->
   <Header></Header>
   <!-- <router-view/> -->
-  </tbody>
 </template>
 
 
@@ -20,10 +17,17 @@ export default {
     };
   },
   methods:{
-    test(){
-      var html = document.getElementsByTagName('body');
-      html.classList.add('white');
+    miseAJourMode(){
+      if (this.$store.state.lightMode === 'white'){
+        document.body.classList.add('white');
+      }
+      else {
+        document.body.classList.add('dark');
+      }
     }
+  },
+  mounted() {
+    this.$nextTick(this.miseAJourMode)
   }
 };
 </script>
@@ -46,6 +50,10 @@ html, body{
 
 .white {
   background-color: var(--lightBackground);
+}
+
+.dark {
+  background-color: var(--darkBackground);
 }
 
 :root

@@ -7,7 +7,7 @@ export default createStore({
     state: {
         actualUser: null,
         actualToken: null,
-        lightMode: "white",
+        lightMode: "dark",
         language: "fr"
     },
     getters: {},
