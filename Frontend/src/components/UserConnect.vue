@@ -1,4 +1,10 @@
 <template>
+  <!-- Rounded switch -->
+  <label class="switch">
+    <img class="lightmode" src="../assets/img.png" />
+    <input type="checkbox">
+    <span class="slider round"></span>
+  </label>
   <div class="container">
   <div class="form-structor">
     <div class="signup" id="sign">
@@ -75,6 +81,7 @@ export default {
 
 <style scoped>
 
+
 .container{
   display: flex;
   justify-content: center;
@@ -84,9 +91,10 @@ export default {
 .form-structor {
   background-color: #222;
   border-radius: 15px;
-  height: 550px;
-  width: 100%;
-  position: relative;
+  top: 16%;
+  position: absolute;
+  height: 75%;
+  width: 90%;
   overflow: hidden;
 }
 .form-structor::after {
@@ -98,18 +106,32 @@ export default {
   bottom: 0;
   left: 0;
   background-repeat: no-repeat;
-  background-position: left bottom;
-  background-size: 500px;
-  background-image: url("https://images.unsplash.com/photo-1503602642458-232111445657?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=bf884ad570b50659c5fa2dc2cfb20ecf&auto=format&fit=crop&w=1000&q=100");
+  background-color: #191A36;
+  background-image: url("https://imgur.com/Uc1dbgP.png");
+  background-position: left;
+
+
 }
 .form-structor .signup {
   position: absolute;
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
-  width: 65%;
+  width: 45%;
   z-index: 5;
   -webkit-transition: all 0.3s ease;
+}
+
+@media (max-width: 1024px) {
+  .form-structor .signup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    width: 65%;
+    z-index: 5;
+    -webkit-transition: all 0.3s ease;
+  }
 }
 .form-structor .signup.slide-up {
   top: 5%;
@@ -141,15 +163,17 @@ export default {
   visibility: hidden;
   -webkit-transition: all 0.3s ease;
 }
+
 .form-structor .signup .form-holder {
   border-radius: 15px;
   background-color: #fff;
   overflow: hidden;
   margin-top: 50px;
-  opacity: 1;
+  opacity: 0.9;
   visibility: visible;
   -webkit-transition: all 0.3s ease;
 }
+
 .form-structor .signup .form-holder .input {
   border: 0;
   outline: none;
@@ -176,7 +200,8 @@ export default {
   display: block;
   margin: 15px auto;
   padding: 15px 45px;
-  width: 100%;
+  width: 30%;
+  min-width: 150px;
   font-size: 13px;
   font-weight: bold;
   cursor: pointer;
@@ -194,22 +219,23 @@ export default {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #fff;
   z-index: 5;
   -webkit-transition: all 0.3s ease;
+  background-color: #d8bc94;
 }
+
 .form-structor .login::before {
   content: "";
   position: absolute;
   left: 50%;
   top: -20px;
   -webkit-transform: translate(-50%, 0);
-  background-color: #fff;
   width: 200%;
   height: 250px;
   border-radius: 50%;
   z-index: 4;
   -webkit-transition: all 0.3s ease;
+  background-color: #d8bc94;
 }
 .form-structor .login .center {
   position: absolute;
@@ -219,6 +245,7 @@ export default {
   width: 65%;
   z-index: 5;
   -webkit-transition: all 0.3s ease;
+
 }
 .form-structor .login .center .form-title {
   color: #000;
@@ -240,6 +267,22 @@ export default {
   opacity: 1;
   visibility: visible;
   -webkit-transition: all 0.3s ease;
+  margin-left: 27%;
+  width: 45%;
+}
+@media (max-width: 1024px) {
+  .form-structor .login .center .form-holder {
+    border-radius: 15px;
+    background-color: #fff;
+    border: 1px solid #eee;
+    overflow: hidden;
+    margin-top: 50px;
+    opacity: 1;
+    visibility: visible;
+    -webkit-transition: all 0.3s ease;
+    margin-left: 7%;
+    width: 90%;
+  }
 }
 .form-structor .login .center .form-holder .input {
   border: 0;
@@ -250,9 +293,10 @@ export default {
   line-height: 30px;
   padding: 8px 15px;
   border-bottom: 1px solid #eee;
-  width: 100%;
+  width: 65%;
   font-size: 12px;
 }
+
 .form-structor .login .center .form-holder .input:last-child {
   border-bottom: 0;
 }
@@ -267,7 +311,8 @@ export default {
   display: block;
   margin: 15px auto;
   padding: 15px 45px;
-  width: 100%;
+  width: 30%;
+  min-width: 140px;
   font-size: 13px;
   font-weight: bold;
   cursor: pointer;
@@ -275,18 +320,23 @@ export default {
   visibility: visible;
   -webkit-transition: all 0.3s ease;
 }
+
+
 .form-structor .login .center .submit-btn:hover {
   transition: all 0.3s ease;
   background-color: rgba(0, 0, 0, 0.8);
+
 }
 .form-structor .login.slide-up {
   top: 90%;
   -webkit-transition: all 0.3s ease;
+
 }
 .form-structor .login.slide-up .center {
   top: 10%;
   -webkit-transform: translate(-50%, 0%);
   -webkit-transition: all 0.3s ease;
+
 }
 .form-structor .login.slide-up .form-holder, .form-structor .login.slide-up .submit-btn {
   opacity: 0;
@@ -305,5 +355,84 @@ export default {
   opacity: 1;
   visibility: visible;
   -webkit-transition: all 0.3s ease;
+}
+
+.lightmode{
+  width : 37px;
+  height : 37px;
+}
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  top: 15px;
+  left: 80%;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+@media (max-width: 425px) {
+  .switch {
+    position: relative;
+    top: 15px;
+    left: 65%;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+}
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 45px;
+  right: -45px;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
 }
 </style>

@@ -42,7 +42,7 @@ html, body{
 }
 
 .white {
-  background-color: var(--lightBackground);
+  background-color:  var(--darkBackground);
 }
 
 .dark {
