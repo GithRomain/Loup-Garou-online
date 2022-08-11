@@ -1,14 +1,6 @@
 const mongoose = require("mongoose");
 const uniqueValidator = require('mongoose-unique-validator');
 
-//clef secrete
-const key = process.env.TOKEN;
-
-// import bcryptjs - hashing function
-const bcrypt = require('bcryptjs');
-// import jsonwebtoken
-const jwt = require('jsonwebtoken');
-
 const UserSchema = mongoose.Schema({
     pseudo: {
         type: String,
@@ -29,6 +21,16 @@ const UserSchema = mongoose.Schema({
         type: String,
         required: true
     },
+
+    lightMode: {
+        type: Boolean,
+        default: true
+    },
+
+    language: {
+        type: String,
+        default: "en"
+    }
 })
 
 UserSchema.plugin(uniqueValidator);

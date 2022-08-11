@@ -21,10 +21,10 @@ exports.register = (req, res, next) => {
             user.save()
                 .then(() => res.status(201).json({ message: 'User created' }))
                 //if user not created for some reason
-                .catch(error => res.status(400).json({ error }));
+                .catch(error => res.status(400).json({ error: 'This pseudo or email is already taken' }));
         })
         //if can't hash password for some reason
-        .catch(error => res.status(500).json({ error }));
+        .catch(error => res.status(500).json({ error: "Please fill the form" }));
 };
 
 // User LogIn function

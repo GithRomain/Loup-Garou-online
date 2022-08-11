@@ -12,7 +12,7 @@ module.exports = {
     port: 8081
   },
   pwa: {
-    themeColor: '#17a2b8',
+    themeColor: '#382129',
     msTileColor: '#000000',
     iconPaths: {
       msTileImage: ''

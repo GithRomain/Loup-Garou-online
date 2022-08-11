@@ -13,16 +13,18 @@ export default {
    components: {RouterView},
   data() {
     return {
-      lightMode: 'white'
+      lightMode: false
     };
   },
   methods:{
     miseAJourMode(){
-      if (this.$store.state.lightMode === 'white'){
+      if (this.$store.state.actualUser.lightMode === true){
         document.body.classList.add('white');
+        document.body.classList.remove('dark');
       }
       else {
         document.body.classList.add('dark');
+        document.body.classList.remove('white');
       }
     }
   },
@@ -42,7 +44,7 @@ html, body{
 }
 
 .white {
-  background-color:  var(--darkBackground);
+  background-color:  var(--whiteBackground);
 }
 
 .dark {
@@ -51,11 +53,11 @@ html, body{
 
 :root
   {
-  --lightTheme: #7549cc;
-  --lightText: 	#724f36;
-  --lightBrown: #d4b9f0;
-  --lightBordeaux: #9769d2;
-  --lightBackground: #fdf4c0;
+  --whiteTheme: #7549cc;
+  --whiteText: 	#724f36;
+  --whiteBrown: #d4b9f0;
+  --whiteBordeaux: #9769d2;
+  --whiteBackground: #fdf4c0;
 
   --darkTheme: #772330;
   --darkText: #d8bc94;

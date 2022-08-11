@@ -7,8 +7,6 @@ export default createStore({
     state: {
         actualUser: null,
         actualToken: null,
-        lightMode: "white",
-        language: "fr"
     },
     getters: {},
     mutations: {

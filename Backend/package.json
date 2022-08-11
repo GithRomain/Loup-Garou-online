@@ -4,8 +4,7 @@
   "description": "Przykładowy REST API server do celów doemonstracji ",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "GR 2021",
   "license": "ISC",

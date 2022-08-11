@@ -1,10 +1,5 @@
 <template>
-  <!-- Rounded switch -->
-  <label class="switch">
-    <img class="lightmode" src="../assets/img.png" />
-    <input type="checkbox">
-    <span class="slider round"></span>
-  </label>
+
   <div class="container">
   <div class="form-structor">
     <div class="signup" id="sign">
@@ -14,7 +9,7 @@
         <input v-model="email" type="email" class="input" placeholder="Email"/>
         <input v-model="registerPassword" type="password" class="input" placeholder="Password"/>
       </div>
-      <button class="submit-btn" type="submit" v-on:click="afaire">Sign up</button>
+      <button class="submit-btn" type="submit" v-on:click="onSubmit">Sign up</button>
     </div>
     <div class="login slide-up" id="log">
       <div class="center">
@@ -51,10 +46,13 @@ export default {
   },
   data() {
     return {
+      lightMode: false,
+      language: false,
+
       pseudo:"",
       email: "",
       registerPassword: "",
-      regiser: false,
+      regiser: true,
 
 
       emailOrPseudo: "",
@@ -68,32 +66,137 @@ export default {
   },
   methods:{
     ...mapActions(['updateStorage']),
+    //to register or login user
     connect(response){
-      const newUser = {
-        emailOrPseudo: this.emailOrPseudo,
-        password: this.password,
-        recaptchaToken: response
+      //if user want to login
+      if (this.login){
+        //set parameters
+        const userLogin = {
+          emailOrPseudo: this.emailOrPseudo,
+          password: this.password,
+          recaptchaToken: response
+        }
+        //if form is not fully completed
+        if (this.emailOrPseudo ===  "" || this.password === ""){
+          alert("Fill the all form please");
+          this.$router.go();
+        }
+        //connect user via the back
+        http
+            .post("/user/logIn", userLogin)
+            .then(res => {
+              //update elements in store
+              this.$store.state.actualUser = res.data.user;
+              this.$store.state.actualToken = res.data.token;
+              //connect to store to localStorage
+              this.updateStorage();
+              //if login successfull with all authorization go to the Home Page
+              this.$router.push("/HomePage")
+            })
+            //if there is error
+            .catch(err => {
+              //tell the user what error this is
+              alert(err.response.data.error)
+              //reload page to reset captcha
+              this.$router.go();
+            })
       }
-      http
-          .post("/user/logIn", newUser)
-          .then(res => {
-            console.log(res);
-            this.$store.state.actualUser = res.data.user;
-            this.$store.state.actualToken = res.data.token;
-            this.updateStorage();
-            this.$router.push("/HomePage")
-          })
-          .catch(err => {
-            console.log(err.response)
-            if(err.response.status === 402) {
-              alert(err.response.data.error)
-            }
-            else if (err.response.status === 401){
-              alert(err.response.data.error)
-            }
+      //if user want to register
+      else if (this.regiser){
+        //set parameters
+        const userRegister = {
+          pseudo: this.pseudo,
+          email: this.email,
+          password: this.registerPassword,
+          recaptchaToken: response
+        }
+        //if form is not fully completed
+        if (this.pseudo ===  "" || this.email === "" || this.registerPassword === ""){
+          alert("Fill the all form please");
+          this.$router.go();
+        }
+        else {
+          //if email case is not an email
+          if (!this.email.includes('@')) {
+            alert("Please enter an valid email")
             this.$router.go();
-          })
+          }
+          else {
+            http
+                .post("/user/register", userRegister)
+                .then(res => {
+                  //inform that the user is created
+                  alert(res.data.message + "Now go login");
+                  this.$router.go();
+                })
+                .catch(err => {
+                  //if not created
+                  alert(err.response.data.error);
+                  this.$router.go();
+                })
+          }
+        }
+      }
+      //if error...
+      else {
+        alert("Unexcepted error");
+        this.$router.go();
+      }
     },
+
+    //to execute automatique captcha
+    onSubmit: function () {
+      this.$refs.invisibleRecaptcha.execute()
+    },
+
+    //if captcha token is expired
+    onExpired() {
+      console.log('Expired')
+    },
+
+    //Front to choose between login or register
+    goSignOrLogIn(){
+      //get buttons to switch
+      const loginBtn = document.getElementById("login");
+      const signupBtn = document.getElementById("signup");
+
+      //listen login button
+      loginBtn.addEventListener("click", (e) => {
+        if (document.getElementById("log").className === "login slide-up") {
+          let parent = e.target.parentNode.parentNode;
+          Array.from(e.target.parentNode.parentNode.classList).find((element) => {
+            //go to log in
+            if (element !== "slide-up") {
+              parent.classList.add("slide-up");
+              //set bool
+              this.login = true;
+              this.regiser = false;
+            } else {
+              signupBtn.parentNode.classList.add("slide-up");
+              parent.classList.remove("slide-up");
+            }
+          });
+        }
+      });
+      //idem
+      signupBtn.addEventListener("click", (e) => {
+        if (document.getElementById("sign").className === "signup slide-up") {
+          let parent = e.target.parentNode;
+          Array.from(e.target.parentNode.classList).find((element) => {
+            if (element !== "slide-up") {
+              parent.classList.add("slide-up");
+              this.login = false;
+              this.regiser = true;
+            } else {
+              loginBtn.parentNode.parentNode.classList.add("slide-up");
+              parent.classList.remove("slide-up");
+            }
+          });
+        }
+      });
+    },
+
+    //to verify AWP token
     test(){
       const uri = "/user/test";
       const options = {
@@ -108,43 +211,6 @@ export default {
             console.log(res)
           })
           .catch(err => console.log(err))
-    },
-    onSubmit: function () {
-      this.$refs.invisibleRecaptcha.execute()
-    },
-    onExpired() {
-      console.log('Expired')
-    },
-    goSignOrLogIn(){
-      const loginBtn = document.getElementById("login");
-      const signupBtn = document.getElementById("signup");
-
-      loginBtn.addEventListener("click", (e) => {
-        if (document.getElementById("log").className === "login slide-up") {
-          let parent = e.target.parentNode.parentNode;
-          Array.from(e.target.parentNode.parentNode.classList).find((element) => {
-            if (element !== "slide-up") {
-              parent.classList.add("slide-up");
-            } else {
-              signupBtn.parentNode.classList.add("slide-up");
-              parent.classList.remove("slide-up");
-            }
-          });
-        }
-      });
-      signupBtn.addEventListener("click", (e) => {
-        if (document.getElementById("sign").className === "signup slide-up") {
-          let parent = e.target.parentNode;
-          Array.from(e.target.parentNode.classList).find((element) => {
-            if (element !== "slide-up") {
-              parent.classList.add("slide-up");
-            } else {
-              loginBtn.parentNode.parentNode.classList.add("slide-up");
-              parent.classList.remove("slide-up");
-            }
-          });
-        }
-      });
     },
   },
   mounted() {
@@ -173,7 +239,7 @@ export default {
 .form-structor {
   background-color: #222;
   border-radius: 15px;
-  top: 16%;
+  top: 13%;
   position: absolute;
   height: 75%;
   width: 90%;
@@ -496,7 +562,7 @@ export default {
 }
 
 input:checked + .slider {
-  background-color: #2196F3;
+  background-color: var(--darkText);
 }
 
 input:focus + .slider {
