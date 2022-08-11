@@ -10,37 +10,111 @@
     <div class="signup" id="sign">
       <h2 class="form-title" id="signup"><span>or</span>Sign up</h2>
       <div class="form-holder">
-        <input type="text" class="input" placeholder="Name" />
-        <input type="email" class="input" placeholder="Email" />
-        <input type="password" class="input" placeholder="Password" />
+        <input v-model="pseudo" type="text" class="input" placeholder="Pseudo"/>
+        <input v-model="email" type="email" class="input" placeholder="Email"/>
+        <input v-model="registerPassword" type="password" class="input" placeholder="Password"/>
       </div>
-      <button class="submit-btn">Sign up</button>
+      <button class="submit-btn" type="submit" v-on:click="afaire">Sign up</button>
     </div>
     <div class="login slide-up" id="log">
       <div class="center">
         <h2 class="form-title" id="login"><span>or</span>Log in</h2>
         <div class="form-holder">
-          <input type="email" class="input" placeholder="Email" />
-          <input type="password" class="input" placeholder="Password" />
+          <input v-model="emailOrPseudo" type="email" class="input" placeholder="Pseudo or Email"/>
+          <input v-model="password" type="password" class="input" placeholder="Password" />
+          <button class="submit-btn" type="submit" v-on:click="onSubmit">Log in</button>
         </div>
-        <button class="submit-btn">Log in</button>
       </div>
     </div>
   </div>
   </div>
+  <form @submit.prevent="onSubmit" data-netlify-recaptcha data-netlify>
+    <vue-recaptcha
+        ref="invisibleRecaptcha"
+        @verify="connect"
+        @expired="onExpired"
+        size="invisible"
+        :sitekey="sitekey">
+    </vue-recaptcha>
+  </form>
 </template>
 
 <script>
+import http from "../http-common";
+import {mapActions} from 'vuex';
+import {VueRecaptcha} from "vue-recaptcha";
+
 export default {
   name: "UserRegister",
+  components: {
+    'vue-recaptcha': VueRecaptcha
+  },
   data() {
     return {
+      pseudo:"",
+      email: "",
+      registerPassword: "",
+      regiser: false,
 
+
+      emailOrPseudo: "",
+      password: "",
+      login: false,
+
+      sitekey: '6Ld9kGQhAAAAAKPiP-s5yYj8Bpr1LP1RJFUPv34B',
     };
   },
   computed:{
   },
   methods:{
+    ...mapActions(['updateStorage']),
+    connect(response){
+      const newUser = {
+        emailOrPseudo: this.emailOrPseudo,
+        password: this.password,
+        recaptchaToken: response
+      }
+      http
+          .post("/user/logIn", newUser)
+          .then(res => {
+            console.log(res);
+            this.$store.state.actualUser = res.data.user;
+            this.$store.state.actualToken = res.data.token;
+            this.updateStorage();
+            this.$router.push("/HomePage")
+          })
+          .catch(err => {
+            console.log(err.response)
+            if(err.response.status === 402) {
+              alert(err.response.data.error)
+            }
+            else if (err.response.status === 401){
+              alert(err.response.data.error)
+            }
+            this.$router.go();
+          })
+    },
+    test(){
+      const uri = "/user/test";
+      const options = {
+        method: 'GET',
+        headers: {
+          "Authorization": "Bearer " + this.$store.state.actualToken
+        }
+      };
+      http
+          .request(uri, options)
+          .then(res => {
+            console.log(res)
+          })
+          .catch(err => console.log(err))
+    },
+    onSubmit: function () {
+      this.$refs.invisibleRecaptcha.execute()
+    },
+    onExpired() {
+      console.log('Expired')
+    },
     goSignOrLogIn(){
       const loginBtn = document.getElementById("login");
       const signupBtn = document.getElementById("signup");
@@ -75,6 +149,14 @@ export default {
   },
   mounted() {
     this.$nextTick(this.goSignOrLogIn)
+
+    let recaptchaScript = document.createElement('script')
+    recaptchaScript.setAttribute('src', 'https://www.google.com/recaptcha/api.js')
+    document.head.appendChild(recaptchaScript)
+
+    let recaptchaScriptRender = document.createElement('script')
+    recaptchaScriptRender.setAttribute('src', 'https://www.google.com/recaptcha/api.js?onload=vueRecaptchaApiLoaded&render=explicit')
+    document.head.appendChild(recaptchaScriptRender)
   }
 }
 </script>

@@ -1,16 +1,16 @@
 <template>
   <!-- <div></div> -->
-  <Header></Header>
+  <RouterView></RouterView>
   <!-- <router-view/> -->
 </template>
 
 
 <script>
-import Header from "@/components/RouterView";
+import RouterView from "@/components/RouterView";
 
 export default {
   name: "app",
-   components: {Header},
+   components: {RouterView},
   data() {
     return {
       lightMode: 'white'

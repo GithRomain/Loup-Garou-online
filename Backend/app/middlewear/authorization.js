@@ -6,7 +6,7 @@ module.exports = (req, res, next) => {
         //take the token
         const token = req.headers.authorization.split(' ')[1];
         //uncrypt it
-        const decodedToken = jwt.verify(token, 'RANDOM_TOKEN_SECRET');
+        const decodedToken = jwt.verify(token, process.env.TOKEN);
         //user uncrypted
         const user = decodedToken;
         //set on the req header

@@ -30,6 +30,8 @@
     "vue": "^3.0.0",
     "vue-carousel-3d": "^1.0.1",
     "vue-chartjs": "^4.1.1",
+    "vue-invisible-recaptcha": "^0.2.1",
+    "vue-recaptcha": "^2.0.2",
     "vue-router": "^4.0.6",
     "vue3-carousel": "^0.1.40",
     "vuex": "^4.0.2",

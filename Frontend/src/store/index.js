@@ -25,6 +25,7 @@ export default createStore({
         }
     },
     plugins: [
+        //plugin localStorage
         new VuexPersistence({
             storage: window.localStorage
         }).plugin

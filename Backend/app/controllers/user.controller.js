@@ -1,4 +1,6 @@
 // import User model
+
+const request = require("request");
 const User = require("../models/user.model");
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
@@ -47,7 +49,7 @@ exports.logIn = (req, res, next) => {
                         user: user,
                         token: jwt.sign(
                             user.toObject(),
-                            'RANDOM_TOKEN_SECRET',
+                            process.env.TOKEN,
                             { expiresIn: '24h' }
                         )
                     });
@@ -58,5 +60,4 @@ exports.logIn = (req, res, next) => {
         //if can't search in mongo in the table
         .catch(error => res.status(500).json({ error }));
 };
-
 
