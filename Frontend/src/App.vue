@@ -18,7 +18,11 @@ export default {
   },
   methods:{
     miseAJourMode(){
-      if (this.$store.state.actualUser.lightMode === true){
+      if (this.$store.state.actualUser === null) {
+        document.body.classList.add('dark');
+        document.body.classList.remove('white');
+      }
+      else if (this.$store.state.actualUser.lightMode === true){
         document.body.classList.add('white');
         document.body.classList.remove('dark');
       }

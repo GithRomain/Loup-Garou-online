@@ -3,13 +3,13 @@
   <div class="container">
   <div class="form-structor">
     <div class="signup" id="sign">
-      <h2 class="form-title" id="signup"><span>or</span>Sign up</h2>
-      <div class="form-holder">
+      <h2 class="form-title test-2" id="signup"><span>or</span>Sign up</h2>
+      <div class="form-holder test">
         <input v-model="pseudo" type="text" class="input" placeholder="Pseudo"/>
         <input v-model="email" type="email" class="input" placeholder="Email"/>
         <input v-model="registerPassword" type="password" class="input" placeholder="Password"/>
       </div>
-      <button class="submit-btn" type="submit" v-on:click="onSubmit">Sign up</button>
+      <button class="submit-btn test" type="submit" v-on:click="onSubmit">Sign up</button>
     </div>
     <div class="login slide-up" id="log">
       <div class="center">
@@ -17,8 +17,8 @@
         <div class="form-holder">
           <input v-model="emailOrPseudo" type="email" class="input" placeholder="Pseudo or Email"/>
           <input v-model="password" type="password" class="input" placeholder="Password" />
-          <button class="submit-btn" type="submit" v-on:click="onSubmit">Log in</button>
         </div>
+        <button class="submit-btn" type="submit" v-on:click="onSubmit">Log in</button>
       </div>
     </div>
   </div>
@@ -257,9 +257,16 @@ export default {
   background-color: #191A36;
   background-image: url("https://imgur.com/Uc1dbgP.png");
   background-position: left;
-
-
 }
+
+@media (max-width: 768px){
+  .form-structor::after {
+
+    background-image: url("https://imgur.com/rCH8Qud.jpg");
+    background-position: center;
+  }
+}
+
 .form-structor .signup {
   position: absolute;
   top: 50%;
@@ -341,7 +348,7 @@ export default {
   color: rgba(0, 0, 0, 0.4);
 }
 .form-structor .signup .submit-btn {
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(77, 33, 41, 1);
   color: rgba(255, 255, 255, 0.7);
   border: 0;
   border-radius: 15px;
@@ -359,7 +366,7 @@ export default {
 }
 .form-structor .signup .submit-btn:hover {
   transition: all 0.3s ease;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 1);
 }
 .form-structor .login {
   position: absolute;
@@ -441,7 +448,7 @@ export default {
   line-height: 30px;
   padding: 8px 15px;
   border-bottom: 1px solid #eee;
-  width: 65%;
+  width: 100%;
   font-size: 12px;
 }
 
@@ -452,7 +459,7 @@ export default {
   color: rgba(0, 0, 0, 0.4);
 }
 .form-structor .login .center .submit-btn {
-  background-color: #6B92A4;
+  background-color: var(--darkBordeaux);
   color: rgba(255, 255, 255, 0.7);
   border: 0;
   border-radius: 15px;
@@ -505,82 +512,13 @@ export default {
   -webkit-transition: all 0.3s ease;
 }
 
-.lightmode{
-  width : 37px;
-  height : 37px;
-}
-
-/* The switch - the box around the slider */
-.switch {
+.test{
   position: relative;
-  top: 15px;
-  left: 80%;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
-}
-@media (max-width: 425px) {
-  .switch {
-    position: relative;
-    top: 15px;
-    left: 65%;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
-  }
-}
-/* Hide default HTML checkbox */
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
+  top: -50px;
 }
 
-/* The slider */
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 45px;
-  right: -45px;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
-
-input:checked + .slider {
-  background-color: var(--darkText);
-}
-
-input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
-}
-
-input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
-}
-
-/* Rounded sliders */
-.slider.round {
-  border-radius: 34px;
-}
-
-.slider.round:before {
-  border-radius: 50%;
+.test-2{
+  position: relative;
+  top: -30px;
 }
 </style>
