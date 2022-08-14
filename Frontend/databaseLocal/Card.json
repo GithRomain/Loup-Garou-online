@@ -1,0 +1,227 @@
+{
+  "roles": {
+    "classic": {
+      "villageois": {
+        "Name": "Simple Villageois",
+        "Description": "Il n’a aucune compétence particulière.\nSes seules armes sont la capacité d’analyse des comportements pour identifier les Loups-Garous, et la force de conviction pour empêcher l’exécution de l’innocent qu’il est.",
+        "Image": "",
+        "Team": "village",
+        "Power":[]
+      },
+      "loupgarou": {
+        "Name": "Loup Garou",
+        "Description": "Chaque nuit, ils dévorent un Villageois.\nLe jour, ils essaient de masquer leur identité nocturne pour échapper à la vindicte populaire.",
+        "Image": "",
+        "Team": "lg",
+        "Power":[]
+      },
+      "voyante": {
+        "Name": "La Voyante",
+        "Description": "Chaque nuit, elle découvre la vraie personnalité d’un joueur de son choix.\nElle doit aider les autres Villageois, mais rester discrète pour ne pas être démasquée par les Loups-Garous.",
+        "Image": "",
+        "Team": "village",
+        "Power":[]
+      },
+      "chasseur": {
+        "Name": "Le Chasseur",
+        "Description": "S’il se fait dévorer par les Loups-Garous ou exécuter malencontreusement par les joueurs, le Chasseur doit répliquer avant de rendre l’âme, en éliminant immédiatement n’importe quel autre joueur de son choix.",
+        "Image": "",
+        "Team": "village",
+        "Power":[]
+      },
+      "cupidon": {
+        "Name": "Cupidon",
+        "Description": "En décochant ses célèbres flèches magiques, Cupidon a le pouvoir de rendre 2 personnes amoureuses à jamais.\nSi l’un des Amoureux est éliminé, l’autre meurt de chagrin immédiatement.\nUn Amoureux ne doit jamais voter contre son aimé, ni lui porter aucun préjudice (même pour faire semblant !).\nAttention : si l’un des deux Amoureux est un Loup-Garou et l’autre un Villageois, le but de la partie change pour eux.\nPour vivre en paix leur amour et gagner la partie, ils doivent éliminer tous les autres joueurs, Loups-Garous et Villageois, en respectant les règles de jeu.",
+        "Image": "",
+        "Team": "village",
+        "Power":[]
+      },
+      "sorciere": {
+        "Name": "La Sorcière",
+        "Description": "Elle sait concocter 2 potions extrêmement puissantes :\nune potion de guérison, pour ressusciter le joueur tué par les Loups-Garous, une potion d’empoisonnement, utilisée la nuit pour éliminer un joueur.\nLa Sorcière doit utiliser chaque potion 1 seule fois dans la partie. Elle peut se servir des ses 2 potions la même nuit.",
+        "Image": "",
+        "Team": "village",
+        "Power":[]
+      },
+      "petitefille": {
+        "Name": "La Petite Fille",
+        "Description": "La Petite Fille peut, en entrouvrant les yeux, espionner les Loups-Garous pendant leur réveil. Si elle se fait surprendre par un des Loups-Garous, elle meurt immédiatement (en silence), à la place de\nla victime désignée.\nLa Petite Fille ne peut espionner que la nuit, durant le tour d’éveil des Loups-Garous.",
+        "Image": "",
+        "Team": "village",
+        "Power":[]
+      },
+      "capitaine": {
+        "Name": "Le Maire du Village",
+        "Description": "Dorénavant, les votes de ce joueur comptent pour 2 voix. Si ce joueur se fait éliminer, dans son dernier souffle il désigne son successeur.",
+        "Image": "",
+        "Power":[]
+      },
+      "voleur": {
+        "Name": "Le Voleur",
+        "Description": "Si on veut jouer le Voleur, il faut ajouter deux cartes Simples Villageois en plus de toutes celles déjà choisies.\nAprès la distribution, les deux cartes non distribuées sont placées au centre de la table faces cachées.\nLa première nuit, le Voleur pourra prendre connaissance de ces deux cartes, et échanger sa carte contre une des deux autres.\nSi ces cartes sont deux Loups-Garous, il est obligé d’échanger sa carte contre un des deux Loups-Garous.\nIl jouera désormais ce personnage jusqu’à la fin de la partie.",
+        "Image": "",
+        "Power":[]
+      },
+      "salvateur": {
+        "Name": "Le Salvateur",
+        "Description": "Le Salvateur se réveille chaque nuit avant les loups-garous, et désigne un joueur qu'il protégera.\nSi ce joueur est la victime désignée par les loups-garous cette nuit, il survit à leur assaut.\nLe salvateur peut éventuellement se protéger lui-même, mais il ne peut pas protéger la même personne deux tours de suite.",
+        "Image": "",
+        "Team": "village",
+        "Power":[]
+      },
+      "idiot": {
+        "Name": "L'Idiot du village",
+        "Description": "L'idiot du village n'a pas de pouvoir étant vivant. S'il est lynché par les villageois, ceux-ci le gracient immédiatement.\nPar la suite, l'idiot du village reste en vie, mais ne peut plus voter.\nÀ l'inverse du vote des villageois, la potion de la sorcière, le tir du chasseur ou les loups-garous le tuent sans le gracier.\nIl a toujours le droit de communiquer avec les autres villageois et de les encourager à tuer un personnage. S'il est amoureux et est désigné par le village son couple reste en vie!",
+        "Image": "",
+        "Team": "village",
+        "Power":[]
+      },
+      "bouc-emissaire": {
+        "Name": "Le bouc émissaire",
+        "Description": "En cas d'égalité dans le vote du village, c'est le bouc émissaire qui meurt d'office.",
+        "Image": "",
+        "Team": "village",
+        "Power":[]
+      },
+      "ancien": {
+        "Name": "L'Ancien",
+        "Description": "L'ancien survit à la première attaque des loups-garous. Attention ! Le tir du chasseur, le vote du village, la potion de la sorcière et la seconde attaque des loups-garous (donc dès la deuxième nuit) le tuent instantanément.\nSi l'ancien est la victime du vote du village, de la potion d'empoisonnement de la sorcière ou du tir du chasseur, il meurt et tous les villageois perdent leurs pouvoirs",
+        "Image": "",
+        "Team": "village",
+        "Power":[]
+      },
+      "joueurflute": {
+        "Name": "Le Joueur de flûte",
+        "Description": "Ennemi à la fois des villageois et des loups-garous, le joueur de flûte se réveille à la fin de chaque nuit et choisit chaque fois deux nouveaux joueurs qu'il va charmer.\nPuis, il se rendort et le meneur de jeu réveille tous les joueurs charmés (anciens et nouveaux) pour qu'ils se reconnaissent.\nLes joueurs charmés continuent à jouer normalement, mais si, à n'importe quel moment, le joueur de flûte est en vie et tous les autres joueurs vivants sont charmés, le joueur de flûte gagne immédiatement, seul.",
+        "Image": "",
+        "Team": "solo",
+        "Power":[]
+      }
+    },
+
+    "village": {
+      "loupblanc": {
+        "Name": "Le Loup Blanc",
+        "Description": "Il est différent des autres loups-garous, qui eux sont persuadés qu'il est dans leur camp.\nLe but du loup-garou blanc est d'être le dernier survivant.\nIl se réveille en même temps que les autres loups-garous et désigne la victime avec eux, mais une nuit sur deux il se réveille une deuxième fois seul et peut choisir d'éliminer ou non un loup-garou.",
+        "Image": "",
+        "Team": "solo",
+        "Power":[]
+      },
+      "corbeau": {
+        "Name": "Le Corbeau",
+        "Description": "Le corbeau se réveille en dernier toutes les nuits et peut désigner au maître du jeu un joueur qu'il pense être le loup-garou.\nCe joueur aura automatiquement deux voix contre lui pour le prochain vote. ",
+        "Image": "",
+        "Team": "village",
+        "Power":[]
+      }
+    },
+
+    "nouvelle-lune": {
+      "enfant": {
+        "Name": "L'Enfant Sauvage",
+        "Description": "L'Enfant Sauvage choisit un joueur au début de la partie qui devient son modèle.\nSi le modèle meurt, l'enfant sauvage devient un loup-garou.",
+        "Image": "",
+        "Team": "village",
+        "Power":[]
+      },
+      "renard": {
+        "Name": "Le Renard",
+        "Description": "La nuit, à l'appel du meneur, il désigne trois joueurs voisins. Si au moins un de ces joueurs est loup-garou, le renard peut recommencer plus tard.\nPar contre, si ce sont trois non loups-garous, le renard perd son pouvoir définitivement en innocentant trois personnes.",
+        "Image": "",
+        "Team": "village",
+        "Power":[]
+      },
+      "servante": {
+        "Name": "La Servante dévouée",
+        "Description": "La Servante Dévouée \"se sacrifie\" à la place d'un autre joueur choisi durant le vote (ou plus exactement change de rôle sans disparaître du jeu).\nLe joueur qui joue la servante échange la carte de la servante avec la carte du personnage qui vient d'être désigné comme mise à mort par le village (sans la révéler au village).\nLe joueur qui joue la servante joue maintenant cette carte, tandis que le joueur désigné à l'origine est bel et bien éliminé... mais avec la carte de la servante.\nDe plus, le pouvoir de la carte échangée est \"réinitialisé\".",
+        "Image": "",
+        "Team": "village",
+        "Power":[]
+      },
+      "freres": {
+        "Name": "Les Trois Frères",
+        "Description": "Les Trois Frères durant toutes les nuits, après les loups garous, se réveillent ensemble et décident ce qu'ils vont faire pendant le jour, donc pour qui ils vont voter.\nCe sont, sinon, de simples villageois.",
+        "Image": "",
+        "Team": "village",
+        "Power":[]
+      },
+      "soeurs": {
+        "Name": "Les Deux Sœurs",
+        "Description": "Les Deux Sœurs durant toutes les nuits, après les loups garous, se réveillent ensemble et décident ce qu'ils vont faire pendant le jour, donc pour qui ils vont voter.\nCe sont, sinon, de simples villageois.",
+        "Image": "",
+        "Team": "village",
+        "Power":[]
+      },
+      "montreurours": {
+        "Name": "Le Montreur d'ours",
+        "Description": "Le matin, si le montreur d'ours se trouve à côté d'un loup garou, l'ours grogne indiquant au montreur d'ours qu'à sa droite ou sa gauche se trouve un loup garou.\nSi le montreur d'ours a lui-même été infecté par l'infect père des loups, alors l'ours grognera à tous les tours.",
+        "Image": "",
+        "Team": "village",
+        "Power":[]
+      },
+      "comedien": {
+        "Name": "Le Comédien",
+        "Description": "Lorsque le comédien est présent dans la partie, le meneur de jeu choisit trois cartes supplémentaires qu'il place face révélée.\nChaque nuit, le comédien choisit parmi ces trois cartes le rôle qu'il veut jouer jusqu'à la prochaine nuit.\nLorsqu'un rôle est sélectionné, il est retiré de la partie afin que les autres joueurs puissent voir lequel a été sélectionné.\nQuand il ne peut plus choisir de rôle, il redevient simple villageois.",
+        "Image": "",
+        "Team": "village",
+        "Power":[]
+      },
+      "chevalier": {
+        "Name": "Le Chevalier à l'épée rouillée",
+        "Description": "Le Chevalier à l'Épée rouillée donne le tétanos au premier loup à sa gauche s'il est mangé par les loups durant la nuit.\nCe loup-garou mourra la nuit d'après",
+        "Image": "",
+        "Team": "village",
+        "Power":[]
+      },
+      "juge": {
+        "Name": "Le Juge bègue",
+        "Description": "Le juge bègue montre, la nuit, au meneur, un signe particulier.\nSi, lors d'un vote de village, il fait ce signe au meneur, le meneur lancera alors un deuxième vote après la mort du premier voté.\nIl doit choisir un signe discret.",
+        "Image": "",
+        "Team": "village",
+        "Power":[]
+      },
+      "ange": {
+        "Name": "L'Ange",
+        "Description": "Le but de l'Ange est de se faire éliminer dès le premier vote.\nS'il réussit, la partie se termine et il a gagné. Dans le cas contraire, le jeu continue mais l'ange devient un simple villageois sans pouvoir",
+        "Image": "",
+        "Team": "solo",
+        "Power":[]
+      },
+      "sectaire": {
+        "Name": "L'Abominable sectaire",
+        "Description": "La première nuit, le meneur divise le village en deux parties.\nL’abominable sectaire est forcément dans un de ces camps, et pour gagner, il doit éliminer tous les joueurs de l'autre camp. C'est un personnage indépendant.",
+        "Image": "",
+        "Team": "solo",
+        "Power":[]
+      },
+      "infectepere": {
+        "Name": "L'Infect père des loups'",
+        "Description": "Il peut choisir d'infecter la victime des loups-garous et la transformer en loup mais l'infecté garde les pouvoirs de sa carte initiale et conserve son rôle initial.\nIl garde sa carte de base donc la voyante ne pourra jamais savoir que c'est un loup-garou.",
+        "Image": "",
+        "Team": "lg",
+        "Power":[]
+      },
+      "chien-loup": {
+        "Name": "Le Chien-Loup",
+        "Description": "À l'appel du meneur de jeu, le chien-loup choisit entre loup-garou et villageois.",
+        "Image": "",
+        "Team": "village",
+        "Power":[]
+      },
+      "villagois2": {
+        "Name": "Le Villageois-Villageois",
+        "Description": "Le Villageois-Villageois est un personnage dont la carte présente deux faces identiques : il est connu de tous comme un simple villageois",
+        "Image": "",
+        "Team": "village",
+        "Power":[]
+      },
+      "mechantloup": {
+        "Name": "Le Grand méchant loup",
+        "Description": "Le grand méchant loup mange dans un premier temps avec les loups-garous, puis il mange une deuxième fois seul un villageois mais il ne peut manger une deuxième victime que si aucun loup-garou n'est mort avant cette nuit.",
+        "Image": "",
+        "Team": "lg",
+        "Power":[]
+      }
+    }
+  }
+}

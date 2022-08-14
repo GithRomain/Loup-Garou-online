@@ -1,6 +1,4 @@
 // import User model
-
-const request = require("request");
 const User = require("../models/user.model");
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
@@ -31,7 +29,7 @@ exports.register = (req, res, next) => {
 // AUTOMATIC CHANGE WITH THE MODEL
 exports.logIn = (req, res, next) => {
     //Search by pseudo
-    User.findOne({ $or: [{pseudo: req.body.emailOrPseudo}, {email: req.body.emailOrPseudo}] })
+    User.findOneAndUpdate({ $or: [{pseudo: req.body.emailOrPseudo}, {email: req.body.emailOrPseudo}] }, {$set : {status: true}}, {new: true})
         .then(user => {
             //if user not find in mongo
             if (!user) {
@@ -60,4 +58,31 @@ exports.logIn = (req, res, next) => {
         //if can't search in mongo in the table
         .catch(error => res.status(500).json({ error }));
 };
+
+exports.updateStatus = (req, res, next) => {
+    //Find product and update it
+    User.findOneAndUpdate({ _id: req.body._id},
+        {$set : {status: req.body.status}},{new: true})
+        .then(user => {
+            if(!user) {
+                return res.status(404).json({
+                    error: "User not found with id " +
+                        req.body._id
+                });
+            }
+            res.send(user);
+        })
+        .catch(err => {
+            if(err.kind === 'ObjectId') {
+                return res.status(404).json({
+                    error: "User not found with id " +
+                        req.body._id
+                });
+            }
+            return res.status(500).json({
+                error: "Error updating user with id " +
+                    req.body._id
+            });
+        });
+}
 

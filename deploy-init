@@ -10,7 +10,7 @@ cp -a Backend/ Deploiement/
 cd Deploiement
 rm -rfv node_modules
 git init
-heroku git:remote -a loup-garou-online
+heroku git:remote -a were-wolf-online
 git add .
 git commit -am "init"
 git push heroku master

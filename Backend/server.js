@@ -28,8 +28,10 @@ app.use(cors(corsOptions))
 
 // Import API route
 const UserRoutes = require('./app/routes/user.routes.js'); //importing route
+const LobbyRoutes = require('./app/routes/lobby.routes.js'); //importing route
 // routes
 UserRoutes(app);
+LobbyRoutes(app);
 
 // Handle production
 if (process.env.NODE_ENV === 'production') {

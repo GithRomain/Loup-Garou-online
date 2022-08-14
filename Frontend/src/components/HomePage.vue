@@ -1,11 +1,13 @@
 <template>
   <p>HOME PAGE</p>
+  <div>{{test}}</div>
 </template>
 
 <script>
 //import http from "../http-common";
 import {mapActions} from 'vuex';
 import Pusher from 'pusher-js';
+import Avatar from '../../databaseLocal/Avatar.json'
 
 export default {
   name: "HomePage",
@@ -13,6 +15,7 @@ export default {
   },
   data() {
     return {
+      test: Avatar["avatar-1"].name
     };
   },
   computed:{
