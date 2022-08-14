@@ -271,7 +271,7 @@ export default {
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
-  width: 45%;
+  width: 30%;
   z-index: 5;
   -webkit-transition: all 0.3s ease;
 }
