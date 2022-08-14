@@ -2,22 +2,22 @@
   <div class="container">
   <div class="form-structor">
     <div class="signup" id="sign">
-      <h2 class="form-title test-2" id="signup"><span>or</span>Sign up</h2>
+      <h2 class="form-title test-2" id="signup"><span>or</span>Log in</h2>
       <div class="form-holder test">
-        <input v-model="pseudo" type="text" class="input" placeholder="Pseudo"/>
-        <input v-model="email" type="email" class="input" placeholder="Email"/>
-        <input v-model="registerPassword" type="password" class="input" placeholder="Password"/>
+        <input v-model="emailOrPseudo" type="email" class="input" placeholder="Pseudo or Email"/>
+        <input v-model="password" type="password" class="input" placeholder="Password" />
       </div>
-      <button class="submit-btn test" type="submit" v-on:click="onSubmit">Sign up</button>
+      <button class="submit-btn test" type="submit" v-on:click="onSubmit">Log in</button>
     </div>
     <div class="login slide-up" id="log">
       <div class="center">
-        <h2 class="form-title" id="login"><span>or</span>Log in</h2>
+        <h2 class="form-title" id="login"><span>or</span>Sign up</h2>
         <div class="form-holder">
-          <input v-model="emailOrPseudo" type="email" class="input" placeholder="Pseudo or Email"/>
-          <input v-model="password" type="password" class="input" placeholder="Password" />
+          <input v-model="pseudo" type="text" class="input" placeholder="Pseudo"/>
+          <input v-model="email" type="email" class="input" placeholder="Email"/>
+          <input v-model="registerPassword" type="password" class="input" placeholder="Password"/>
         </div>
-        <button class="submit-btn" type="submit" v-on:click="onSubmit">Log in</button>
+        <button class="submit-btn" type="submit" v-on:click="onSubmit">Sign up</button>
       </div>
     </div>
   </div>
@@ -51,12 +51,12 @@ export default {
       pseudo:"",
       email: "",
       registerPassword: "",
-      regiser: true,
+      regiser: false,
 
 
       emailOrPseudo: "",
       password: "",
-      login: false,
+      login: true,
 
       sitekey: '6Ld9kGQhAAAAAKPiP-s5yYj8Bpr1LP1RJFUPv34B',
     };
@@ -168,8 +168,8 @@ export default {
             if (element !== "slide-up") {
               parent.classList.add("slide-up");
               //set bool
-              this.login = true;
-              this.regiser = false;
+              this.login = false;
+              this.regiser = true;
             } else {
               signupBtn.parentNode.classList.add("slide-up");
               parent.classList.remove("slide-up");
@@ -184,8 +184,8 @@ export default {
           Array.from(e.target.parentNode.classList).find((element) => {
             if (element !== "slide-up") {
               parent.classList.add("slide-up");
-              this.login = false;
-              this.regiser = true;
+              this.login = true;
+              this.regiser = false;
             } else {
               loginBtn.parentNode.parentNode.classList.add("slide-up");
               parent.classList.remove("slide-up");
