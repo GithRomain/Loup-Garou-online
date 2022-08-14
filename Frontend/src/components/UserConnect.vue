@@ -1,5 +1,4 @@
 <template>
-
   <div class="container">
   <div class="form-structor">
     <div class="signup" id="sign">
