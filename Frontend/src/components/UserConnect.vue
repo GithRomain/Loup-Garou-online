@@ -45,9 +45,6 @@ export default {
   },
   data() {
     return {
-      lightMode: false,
-      language: false,
-
       pseudo:"",
       email: "",
       registerPassword: "",

@@ -1,4 +1,5 @@
 <template>
+  <NavBar></NavBar>
   <p>HOME PAGE</p>
   <div>{{test}}</div>
 </template>
@@ -8,10 +9,12 @@
 import {mapActions} from 'vuex';
 import Pusher from 'pusher-js';
 import Avatar from '../../databaseLocal/Avatar.json'
+import NavBar from "@/components/NavBar";
 
 export default {
   name: "HomePage",
   components: {
+    NavBar
   },
   data() {
     return {
@@ -28,6 +31,7 @@ export default {
 
   },
   mounted() {
+
     var pusher = new Pusher('2af7c304097114bc8b99', {
       cluster: 'eu'
     });

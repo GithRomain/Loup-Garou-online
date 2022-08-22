@@ -7,6 +7,7 @@ export default createStore({
     state: {
         actualUser: null,
         actualToken: null,
+        reloadTime: 0
     },
     getters: {},
     mutations: {

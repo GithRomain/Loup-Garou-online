@@ -1,6 +1,7 @@
 import { createWebHistory, createRouter } from "vue-router";
 import HomePage from "./components/HomePage";
 import UserRegister from "./components/UserConnect";
+import NavBar from "./components/NavBar";
 
 const routes =  [
     {
@@ -13,7 +14,11 @@ const routes =  [
         name:"HomePage",
         component: HomePage,
     },
-
+    {
+        path:"/NavBar",
+        name:"NavBar",
+        component: NavBar,
+    },
 ];
 
 const router = createRouter({

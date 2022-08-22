@@ -59,6 +59,23 @@ exports.logIn = (req, res, next) => {
         .catch(error => res.status(500).json({ error }));
 };
 
+//change light mode
+exports.updateLightMode = (req, res, next) => {
+    //Search by pseudo
+    User.findOneAndUpdate({ _id: req.body._id}, {$set : {lightMode: req.body.lightMode}}, {new: true})
+        .then(user => {
+            //if user not find in mongo
+            if (!user) {
+                return res.status(401).json({ error: 'User not found' });
+            }
+            else {
+                res.send("goodChange")
+            }
+        })
+        //if can't search in mongo in the table
+        .catch(error => res.status(500).json({ error }));
+};
+
 exports.updateStatus = (req, res, next) => {
     //Find product and update it
     User.findOneAndUpdate({ _id: req.body._id},

@@ -1,5 +1,6 @@
 const recaptcha = require("../middlewear/recaptcha");
 const user = require("../controllers/user.controller");
+const authorization = require("../middlewear/authorization");
 module.exports = function(app) {
     const user = require('../controllers/user.controller')
     const authorization = require('../middlewear/authorization')
@@ -13,6 +14,8 @@ module.exports = function(app) {
 
     //for all others routes add authorization at middlewear
     app.get('/api/user/test', authorization, user.test);
+    //update lightMode
+    app.put('/api/user/updateLightMode', user.updateLightMode)
     //updateStatus
     app.put('/api/user/updateStatus', authorization, user.updateStatus)
 }
